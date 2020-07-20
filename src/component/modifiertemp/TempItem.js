@@ -2,13 +2,6 @@ import React, { useEffect, useState } from "react";
 import firebase from "../../firebase";
 import { Row, Container, Col, Table, Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { element } from "prop-types";
-
-let data;
-
-function disable(a) {
-  document.getElementById(a).disabled = true;
-}
 
 let LoadData = (props) => {
   let [dataTemplate, setData] = useState([]);
@@ -28,7 +21,7 @@ let LoadData = (props) => {
           }));
           setData(a);
         });
-    }, [dataTemplate]);
+    }, [props]);
   } catch (e) {
     console.log(e);
   }
@@ -72,8 +65,9 @@ let useItems = (props) => {
 };
 
 function TempItem(props) {
+  let [data, setTableData] = useState([]);
   data = useItems(props);
-  let tempdata = LoadData(props);
+  // let tempdata = LoadData(props);
   let [modifierItemName, setModifierItemName] = useState("");
   let [modifierPrice, setModifierPrice] = useState("");
   let [select, setSelect] = useState(false);
@@ -95,20 +89,17 @@ function TempItem(props) {
             modifierPrice: element.modifierPrice,
             SelectedAt: new Date(),
           });
+        element.alreadyadded = true;
       }
+      setTableData([data]);
     });
+    setTableData([data]);
     alert("Saved");
   };
 
-  useEffect(() => {
-    let a = data;
-    return a;
-  });
-  const refresh = () => {};
   const onCheck = (e, item) => {
     item.checked = e.currentTarget.checked;
     setSelect(item.checked);
-    console.log(item.checked);
     setModifierItemName(e.target.value);
   };
 
@@ -140,7 +131,8 @@ function TempItem(props) {
     try {
       if (item.checked === true) {
         item.checked = false;
-        console.log(item.checked);
+        item.alreadyadded = false;
+        setSelect(item.checked);
         firebase
           .firestore()
           .collection("ModifierTemplate")
@@ -149,10 +141,12 @@ function TempItem(props) {
           .doc(item.id)
           .delete()
           .then(function () {
+            setTableData([data]);
+
             console.log("Document successfully deleted!");
           });
-        console.log("Data:", data);
       }
+      console.log("Data:", data);
     } catch (error) {
       console.error("Error removing document: ", error);
     }

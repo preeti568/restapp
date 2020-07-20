@@ -16,6 +16,10 @@ const SideNav = () => {
             >
               <Navbar.Text>
                 <Nav className="mr-auto">
+                  {/* <Link className="btn btn-light text-dark" to="/AddPrintData">
+                    AddPrintData
+                  </Link>{" "}
+                  &nbsp; &nbsp; */}
                   <Link className="btn btn-light text-dark" to="/gridTable">
                     GridTable
                   </Link>

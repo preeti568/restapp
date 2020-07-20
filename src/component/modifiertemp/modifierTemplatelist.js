@@ -66,7 +66,7 @@ const ModifierTemplateList = () => {
 
   if (searchQuery)
     listItem = listItem.filter((m) =>
-      m.name.toLowerCase().startsWith(searchQuery.toLowerCase())
+      m.templateName.toLowerCase().startsWith(searchQuery.toLowerCase())
     );
 
   const data = paginate(listItem, currentPage, pageSize);

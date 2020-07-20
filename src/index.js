@@ -35,7 +35,7 @@ import UpdateSample from "./new/updateSample";
 import sampleClass from "./new/sampleClass";
 import Address from "./new/address";
 import GridTable from "./newpro/gridTable";
-
+import AddPrintData from "./component/addPrintData";
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -127,6 +127,7 @@ ReactDOM.render(
           />
           <ProtectedRoute path="/sampleForm" component={SampleForm} />
           <ProtectedRoute path="/gridTable" component={GridTable} />
+          <ProtectedRoute path="/AddPrintData" component={AddPrintData} />
         </Switch>
       </AuthProvider>
     </BrowserRouter>
