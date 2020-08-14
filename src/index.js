@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ModifierItem from "./component/Modifier/ModifierItem";
 import Modifier from "./component/Modifier/Modifier";
@@ -30,12 +29,9 @@ import UpTemplate from "./component/modifiertemp/upTemp";
 import Employees from "./component/employees/employees";
 import UpdateEmployee from "./component/employees/updateEmp";
 import EmployeeList from "./component/employees/empList";
-import SampleForm from "./new/sampleForm";
-import UpdateSample from "./new/updateSample";
-import sampleClass from "./new/sampleClass";
-import Address from "./new/address";
-import GridTable from "./newpro/gridTable";
+import GridTable from "./reactTable/gridTable";
 import AddPrintData from "./component/addPrintData";
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -119,13 +115,6 @@ ReactDOM.render(
             path="/itemlist/:id"
             render={(props) => <ItemList {...props} />}
           />
-          <ProtectedRoute path="/sampleForm" component={SampleForm} />
-          <ProtectedRoute
-            exact
-            path="/updateSample/:id"
-            render={(props) => <UpdateSample {...props} />}
-          />
-          <ProtectedRoute path="/sampleForm" component={SampleForm} />
           <ProtectedRoute path="/gridTable" component={GridTable} />
           <ProtectedRoute path="/AddPrintData" component={AddPrintData} />
         </Switch>

@@ -85,16 +85,17 @@ class UserForm extends React.Component {
                       </div>
                     </div>
                   ) : (
-                    <React.Fragment>
-                      <br />
-                      <br />
-                      <br />
-                      <center>
-                        <Button onClick={() => this.redirect(user.id)}>
-                          Go to my Last Page
-                        </Button>
-                      </center>
-                    </React.Fragment>
+                    this.props.history.push(`/${user.id}/restaurant`)
+                    // <React.Fragment>
+                    //   <br />
+                    //   <br />
+                    //   <br />
+                    //   <center>
+                    //     <Button onClick={() => this.redirect(user.id)}>
+                    //       Go to my Last Page
+                    //     </Button>
+                    //   </center>
+                    // </React.Fragment>
                   )}
                 </Col>
               </Row>

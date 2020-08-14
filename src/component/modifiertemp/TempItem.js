@@ -142,7 +142,6 @@ function TempItem(props) {
           .delete()
           .then(function () {
             setTableData([data]);
-
             console.log("Document successfully deleted!");
           });
       }

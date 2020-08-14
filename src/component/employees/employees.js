@@ -4,7 +4,6 @@ import { Button, Row, Container, Col, Form } from "react-bootstrap";
 import { storage } from "../../firebase";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { object } from "prop-types";
 
 const Employees = (props) => {
   const [name, setName] = useState("");
